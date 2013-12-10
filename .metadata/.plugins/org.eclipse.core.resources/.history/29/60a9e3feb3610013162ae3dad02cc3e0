@@ -1,0 +1,44 @@
+package com.example.android_ch15_xml;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+
+import android.os.Bundle;
+import android.provider.DocumentsContract.Document;
+import android.app.Activity;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		InputStream in = getResources().openRawResource(R.raw.data);
+		
+		try{
+			byte[] by = new byte[in.available()];
+			in.read();
+			String XMLstr = new String(by,"utf-8");
+			in.reset();
+			System.out.println(XMLstr);
+			//¿ªÊ¼½âÎö
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			Document doc = builder.parse(in);
+			
+			
+			}catch(IOException e){
+				e.printStackTrace();
+			} catch (ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+}

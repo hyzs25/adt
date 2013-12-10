@@ -1,0 +1,17 @@
+package com.example.android_ch14_adapter;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class AdapterActivity extends Activity {
+	
+	private Myadapter adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_adapter);
+	}
+
+}

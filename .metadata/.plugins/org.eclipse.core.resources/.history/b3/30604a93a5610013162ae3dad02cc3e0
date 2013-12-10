@@ -1,0 +1,7 @@
+package com.example.android_ch14_adapter;
+
+import android.widget.BaseAdapter;
+
+public class Myadapter extends BaseAdapter{
+
+}
